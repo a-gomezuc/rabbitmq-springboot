@@ -1,0 +1,5 @@
+spring:
+  rabbitmq:
+    template:
+      exchange: rabbitmq-exchange
+    queue: test
