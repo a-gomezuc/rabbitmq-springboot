@@ -1,0 +1,18 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.14-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 8081:15672
+  app:
+    build: .
+    container_name: demo-rabbitmq
+    environment:
+      - SERVER_PORT=8080
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_QUEUE=test
+      - SPRING_RABBITMQ_TEMPLATE_EXCHANGE=rabbitmq-exchange
+    ports:
+      - 8080:8080
+    depends_on:
+      - rabbitmq

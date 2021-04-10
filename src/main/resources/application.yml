@@ -3,3 +3,5 @@ spring:
     template:
       exchange: rabbitmq-exchange
     queue: test
+  application:
+    name: demo-rabbitmq
